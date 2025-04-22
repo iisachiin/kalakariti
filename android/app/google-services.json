@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "262897687935",
+    "project_id": "kalakriti-a6b8a",
+    "storage_bucket": "kalakriti-a6b8a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:262897687935:android:933b361d8fd96639b30e4a",
+        "android_client_info": {
+          "package_name": "com.example.your_planner"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcc_KjfWo6DMayn-NSbmLXvbH790_ZqzM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
