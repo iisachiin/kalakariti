@@ -1,16 +1,17 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:kalakriti/Screens/Settings.dart';
 import 'package:kalakriti/Screens/home.dart';
 import 'package:kalakriti/Screens/vendors.dart';
 
-class Bottomnavoigation extends StatefulWidget {
-  const Bottomnavoigation({super.key});
+class Bottomnavigation extends StatefulWidget {
+  const Bottomnavigation({super.key});
 
   @override
-  State<Bottomnavoigation> createState() => _BottomnavoigationState();
+  State<Bottomnavigation> createState() => _BottomnavoigationState();
 }
 
-class _BottomnavoigationState extends State<Bottomnavoigation> {
+class _BottomnavoigationState extends State<Bottomnavigation> {
   int _currentIndex = 0; //Index of the navigation bar
   final items = <Widget>[
     Icon(Icons.home,color: Colors.white,),
@@ -21,6 +22,8 @@ class _BottomnavoigationState extends State<Bottomnavoigation> {
   final Screens = [
     MyHomePage(),
     Vendors(),
+    Settings(),
+    
   ];
   @override
   Widget build(BuildContext context) {

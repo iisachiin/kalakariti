@@ -1,6 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:kalakriti/Components/BottomNavoigation.dart';
+import 'package:kalakriti/Components/BottomNavigation.dart';
 import 'package:kalakriti/firebase_options.dart';
 
 void main()  {
@@ -25,6 +25,6 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: Bottomnavoigation());
+        home: Bottomnavigation());
   }
 }
