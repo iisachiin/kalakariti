@@ -15,7 +15,7 @@ class _VendorsState extends State<Vendors> {
         children: [
           Container(
             child: SizedBox(
-              height: MediaQuery.of(context).size.height,
+              height: MediaQuery.of(context).size.height/1.5,
               width: MediaQuery.of(context).size.width,
             ),
           )

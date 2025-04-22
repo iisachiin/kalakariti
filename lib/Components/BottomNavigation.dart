@@ -2,6 +2,7 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:kalakriti/Screens/Settings.dart';
 import 'package:kalakriti/Screens/home.dart';
+import 'package:kalakriti/Screens/masseges.dart';
 import 'package:kalakriti/Screens/vendors.dart';
 
 class Bottomnavigation extends StatefulWidget {
@@ -22,6 +23,7 @@ class _BottomnavoigationState extends State<Bottomnavigation> {
   final Screens = [
     MyHomePage(),
     Vendors(),
+    Masseges(),
     Settings(),
     
   ];
