@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:kalakriti/Textstyle/homeoptions.dart';
+import 'package:kalakriti/Screens/venues_details.dart';
+import 'package:kalakriti/Textstyle/textStyle.dart';
 
 class Venues extends StatefulWidget {
   const Venues({super.key});
@@ -39,6 +40,7 @@ class _VenuesState extends State<Venues> {
                     location: "Pachkula",
                     price: "200/Plate",
                     onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>VenuesDetails()));
                       print("Tapped on Richi Palace");
                     },
                   ),

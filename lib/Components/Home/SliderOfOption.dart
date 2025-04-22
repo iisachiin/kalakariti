@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kalakriti/Textstyle/homeoptions.dart';
+import 'package:kalakriti/Textstyle/textStyle.dart';
 
 class Sliderofoption extends StatefulWidget {
   const Sliderofoption({super.key});

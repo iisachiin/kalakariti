@@ -12,4 +12,9 @@ class AppTextStyles {
       fontFamily: 'Poppins',
       color: Colors.black,
       fontWeight: FontWeight.bold);
+  static TextStyle descriptionStyle = TextStyle(
+    fontSize: 16,
+    height: 1.5,
+    color: Colors.black87,
+  );
 }
