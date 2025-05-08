@@ -1,56 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 
-class VenuesDetails extends StatefulWidget {
-  final String venueId;  // Pass the document ID
+class VenuesDetails extends StatelessWidget {
+  final Map<String, String> venueData;
 
-  const VenuesDetails({super.key, required this.venueId});
-
-  @override
-  State<VenuesDetails> createState() => _VenuesDetailsState();
-}
-
-class _VenuesDetailsState extends State<VenuesDetails> {
-  DocumentSnapshot? venueData;
-  bool isLoading = true;
-
-  @override
-  void initState() {
-    super.initState();
-    fetchVenueData();
-  }
-
-  Future<void> fetchVenueData() async {
-    try {
-      DocumentSnapshot doc = await FirebaseFirestore.instance
-          .collection('venues')
-          .doc(widget.venueId)
-          .get();
-
-      setState(() {
-        venueData = doc;
-        isLoading = false;
-      });
-    } catch (e) {
-      print("Error fetching venue: $e");
-      setState(() {
-        isLoading = false;
-      });
-    }
-  }
+  const VenuesDetails({super.key, required this.venueData});
 
   @override
   Widget build(BuildContext context) {
-    if (isLoading) {
-      return const Center(child: CircularProgressIndicator());
-    }
-
-    if (venueData == null || !venueData!.exists) {
-      return const Center(child: Text("Venue not found."));
-    }
-
-    final data = venueData!.data() as Map<String, dynamic>;
-
     return Scaffold(
       appBar: AppBar(
         title: const Text('Venue Details'),
@@ -64,8 +20,8 @@ class _VenuesDetailsState extends State<VenuesDetails> {
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.circular(16),
-                child: Image.network(
-                  data['imageUrl'],
+                child: Image.asset(
+                  venueData['imagePath'] ?? 'assets/images/default.jpg',
                   fit: BoxFit.cover,
                   width: double.infinity,
                   height: 200,
@@ -73,7 +29,7 @@ class _VenuesDetailsState extends State<VenuesDetails> {
               ),
               const SizedBox(height: 16),
               Text(
-                data['name'] ?? 'Venue Name',
+                venueData['title'] ?? 'Venue Name',
                 style: const TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
@@ -81,7 +37,7 @@ class _VenuesDetailsState extends State<VenuesDetails> {
               ),
               const SizedBox(height: 8),
               Text(
-                "\$${data['price']} / plate",
+                venueData['price'] != null ? "\$${venueData['price']} / Plate" : 'Price not available',
                 style: const TextStyle(
                   fontSize: 18,
                   color: Colors.green,
@@ -97,9 +53,9 @@ class _VenuesDetailsState extends State<VenuesDetails> {
                 ),
               ),
               const SizedBox(height: 8),
-              Text(
-                data['description'] ?? 'No description available.',
-                style: const TextStyle(
+              const Text(
+                "This venue offers amazing facilities and services to make your event memorable!",
+                style: TextStyle(
                   fontSize: 16,
                   height: 1.5,
                   color: Colors.black87,
@@ -120,7 +76,7 @@ class _VenuesDetailsState extends State<VenuesDetails> {
                     icon: const Icon(Icons.chat_outlined, color: Colors.green),
                     iconSize: 32,
                     onPressed: () {
-                      // Link from Firebase if needed: data['whatsappUrl']
+                      // Dummy action
                     },
                   ),
                   const SizedBox(width: 12),
@@ -128,7 +84,7 @@ class _VenuesDetailsState extends State<VenuesDetails> {
                     icon: const Icon(Icons.phone, color: Colors.blueAccent),
                     iconSize: 32,
                     onPressed: () {
-                      // You can fetch phone number: data['phone']
+                      // Dummy action
                     },
                   ),
                   const SizedBox(width: 12),
@@ -136,10 +92,29 @@ class _VenuesDetailsState extends State<VenuesDetails> {
                     icon: const Icon(Icons.camera_alt, color: Colors.purple),
                     iconSize: 32,
                     onPressed: () {
-                      // Instagram link: data['instagramUrl']
+                      // Dummy action
                     },
                   ),
                 ],
+              ),
+              const SizedBox(height: 24),
+              Center(
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.deepPurple,
+                    padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 12),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                  ),
+                  onPressed: () {
+                    // Booking action here
+                  },
+                  child: const Text(
+                    "Book Now",
+                    style: TextStyle(fontSize: 18, color: Colors.white),
+                  ),
+                ),
               ),
             ],
           ),

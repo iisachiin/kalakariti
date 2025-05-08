@@ -27,31 +27,53 @@ class _VenuesState extends State<Venues> {
           ),
           const SizedBox(height: 20),
           Expanded(
-            
             child: SingleChildScrollView(
-              
               scrollDirection: Axis.horizontal,
               child: Row(
-            
                 children: [
                   VenueCard(
                     imagePath: "assets/images/Wedding venue 1.jpg",
                     title: "Richi Palace",
-                    location: "Pachkula",
+                    location: "Panchkula",
                     price: "200/Plate",
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>VenuesDetails()));
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => VenuesDetails(
+                            venueData: {
+                              "imagePath": "assets/images/Wedding venue 1.jpg",
+                              "title": "Richi Palace",
+                              "location": "Panchkula",
+                              "price": "200",
+                            },
+                          ),
+                        ),
+                      );
                       print("Tapped on Richi Palace");
                     },
                   ),
                   const SizedBox(width: 10),
                   VenueCard(
                     imagePath: "assets/images/Wedding venue.jpg",
-                    title: "Your place",
+                    title: "Your Place",
                     location: "Barnala",
                     price: "500/Plate",
                     onTap: () {
-                      print("Tapped on Your place");
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => VenuesDetails(
+                            venueData: {
+                              "imagePath": "assets/images/Wedding venue.jpg",
+                              "title": "Your Place",
+                              "location": "Barnala",
+                              "price": "500",
+                            },
+                          ),
+                        ),
+                      );
+                      print("Tapped on Your Place");
                     },
                   ),
                   const SizedBox(width: 10),
@@ -61,6 +83,19 @@ class _VenuesState extends State<Venues> {
                     location: "Ludhiana",
                     price: "600/Plate",
                     onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => VenuesDetails(
+                            venueData: {
+                              "imagePath": "assets/images/Wedding venue 2.jpg",
+                              "title": "Decent Venue",
+                              "location": "Ludhiana",
+                              "price": "600",
+                            },
+                          ),
+                        ),
+                      );
                       print("Tapped on Decent Venue");
                     },
                   ),
@@ -71,6 +106,19 @@ class _VenuesState extends State<Venues> {
                     location: "Bathinda",
                     price: "400/Plate",
                     onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => VenuesDetails(
+                            venueData: {
+                              "imagePath": "assets/images/Wedding venue 3.jpg",
+                              "title": "Kingfisher Resort",
+                              "location": "Bathinda",
+                              "price": "400",
+                            },
+                          ),
+                        ),
+                      );
                       print("Tapped on Kingfisher Resort");
                     },
                   ),
@@ -81,6 +129,19 @@ class _VenuesState extends State<Venues> {
                     location: "Chandigarh",
                     price: "1000/Plate",
                     onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => VenuesDetails(
+                            venueData: {
+                              "imagePath": "assets/images/Wedding venue 4.jpg",
+                              "title": "Krishna Land",
+                              "location": "Chandigarh",
+                              "price": "1000",
+                            },
+                          ),
+                        ),
+                      );
                       print("Tapped on Krishna Land");
                     },
                   ),
@@ -91,6 +152,19 @@ class _VenuesState extends State<Venues> {
                     location: "Dabwali",
                     price: "100/Plate",
                     onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => VenuesDetails(
+                            venueData: {
+                              "imagePath": "assets/images/Wedding venue 5.jpg",
+                              "title": "Dreamland Resort",
+                              "location": "Dabwali",
+                              "price": "100",
+                            },
+                          ),
+                        ),
+                      );
                       print("Tapped on Dreamland Resort");
                     },
                   ),
@@ -125,18 +199,17 @@ class VenueCard extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-      // height: MediaQuery.of(context).size.height/1.5,
         width: 200,
         margin: const EdgeInsets.only(bottom: 10),
         decoration: BoxDecoration(
-          color: const Color.fromARGB(255, 255, 255, 255),
+          color: Colors.white,
           borderRadius: BorderRadius.circular(12),
           boxShadow: [
             BoxShadow(
               color: Colors.black12,
               blurRadius: 5,
               offset: Offset(0, 3),
-            )
+            ),
           ],
         ),
         child: Column(
@@ -181,7 +254,7 @@ class VenueCard extends StatelessWidget {
                   ],
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),

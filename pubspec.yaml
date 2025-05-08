@@ -36,7 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   curved_navigation_bar: ^1.0.6
   firebase_core: ^3.13.0
-  cloud_firestore: ^4.8.3
+  # cloud_firestore: ^4.8.3
   
 dev_dependencies:
   flutter_test:
@@ -78,9 +78,13 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: Schyler
+    - family: Poppins
       fonts:
         - asset: fonts/Poppins-SemiBold.ttf
+        - asset: fonts/Poppins-ExtraBold.ttf
+        - asset: fonts/Poppins-Italic.ttf
+       
+
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
